@@ -1,31 +1,33 @@
 # isbn2img
 Get image URL from ISBN
 
-## 原理
+*Read this in other languages: [正體中文](README.zh-tw.md)*
 
-用 ISBN 搜尋找到對應的書，然後得到圖片 URL。
+## Methods
 
-## via 博客來原理
+use ISBN to get the book, then get the image URL.
 
-### [STEP 1] 找尋該書
+## via www.books.com.tw
+
+### [STEP 1] Search Book
 
 ```
 GET http://search.books.com.tw/exep/prod_search.php?key=ISBN
 ```
 
-### [STEP 2] 解析 Response
+### [STEP 2] Parse Response
 
-其中 `name=C1` 的 input tag 的 value 就是該書在博客來的 id
+The input tag with `name=C1` is the id in www.books.com.tw
 
-### [STEP 3] 算出 Image URL
+### [STEP 3] Calculate Image URL
 
-博客來的圖片網址如下
+The Image URL is
 
 ```
 http://www.books.com.tw/img/TOKEN.jpg
 ```
 
-其中 `TOKEN` 是剛剛 `id[3]/id[3:6]/id[6:8]/id` 組成
+where `TOKEN` is `id[3]/id[3:6]/id[6:8]/id`
 
 ex. `id = 1234567890` -> `TOKEN = 123/456/78/1234567890`
 

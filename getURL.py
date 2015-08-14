@@ -13,7 +13,7 @@ def getImage(isbn):
     return 'http://www.books.com.tw/img/{}.jpg'.format(token)
 
 def main():
-    isbn = '9789863200611'
+    isbn = sys.argv[1]
     print getImage(isbn)
 
 if __name__ == '__main__':
